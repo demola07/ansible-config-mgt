@@ -1,0 +1,30 @@
+nfs1 ansible_host=172.31.90.36 ansible_connection=ssh ansible_user='ec2-user'
+web1 ansible_host=172.31.84.138 ansible_connection=ssh ansible_user='ec2-user'
+web2 ansible_host=172.31.84.232 ansible_connection=ssh ansible_user='ec2-user'
+db1 ansible_host=172.31.93.2 ansible_connection=ssh ansible_user='ec2-user'
+lb1 ansible_host=172.31.91.52 ansible_connection=ssh ansible_user='ubuntu'
+
+[nfs]
+nfs1
+
+[webservers]
+web1
+web2
+
+[db]
+db1
+
+[lb]
+lb1
+# [nfs]
+# ansible_host=172.31.90.36 ansible_ssh_user=ec2-user
+
+# [webservers]
+# 172.31.84.138 ansible_ssh_user='ec2-user'
+# 172.31.84.232 ansible_ssh_user='ec2-user'
+
+# [db]
+# 172.31.93.2 ansible_ssh_user='ec2-user'
+
+# [lb]
+# 172.31.91.52 ansible_ssh_user='ubuntu'
