@@ -1,1 +1,1 @@
-Test Jenkins WebHook Connection
+Test Jenkins WebHooks
