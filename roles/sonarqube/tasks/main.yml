@@ -53,9 +53,16 @@
     name: 
       - openjdk-11-jdk
       - openjdk-11-jre
-    state: present
+    state: absent
     allow_unauthenticated: yes
 
+- name: Install Java 17
+  ansible.builtin.apt:
+    name:
+      - openjdk-17-jdk
+      - openjdk-17-jre
+    state: present
+    allow_unauthenticated: yes
 
 - import_tasks: postgresql.yml
 
