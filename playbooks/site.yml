@@ -28,8 +28,8 @@
 # - name: Deploy the todo application
 #   ansible.builtin.import_playbook: ../static-assignments/deployment.yml
 
-- hosts: sonar
-- name: sonar assignment
+- hosts: sonarqube
+- name: sonarqube assignment
   ansible.builtin.import_playbook: ../static-assignments/sonarqube.yml
 
 # - name: import webserver assignment
