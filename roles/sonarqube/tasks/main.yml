@@ -24,7 +24,7 @@
     state: present
 
 - name: Update APT package cache
-    ansible.builtin.apt:
+    apt:
       update_cache: yes
 
 - name: Add Linux Uprising Java repository to sources.list.d
