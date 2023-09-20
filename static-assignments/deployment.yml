@@ -4,8 +4,14 @@
   hosts: todo
 
   tasks:
-    - name: install remi and rhel repo
+    - name: Update system-release
       ansible.builtin.yum:
+        name: system-release
+        state: latest
+      ignore_errors: yes
+      
+    - name: install remi and rhel repo
+      ansible.builtin.dnf:
         name: 
           - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
           - dnf-utils
