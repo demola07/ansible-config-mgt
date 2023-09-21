@@ -24,19 +24,19 @@
     state: present
 
 - name: Update APT package cache
-    apt:
-      update_cache: yes
+  apt:
+    update_cache: yes
 
 - name: Add Linux Uprising Java repository to sources.list.d
-    lineinfile:
-      path: /etc/apt/sources.list.d/linuxuprising-java.list
-      line: "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu focal main"
-      create: yes
+  lineinfile:
+    path: /etc/apt/sources.list.d/linuxuprising-java.list
+    line: "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu focal main"
+    create: yes
 
 - name: Import the repository GPG key
-    apt_key:
-      keyserver: hkp://keyserver.ubuntu.com:80
-      id: 73C3DB2A
+  apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 73C3DB2A
 
 
 - name: install python3
