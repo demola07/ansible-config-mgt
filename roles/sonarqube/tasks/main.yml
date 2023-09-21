@@ -75,13 +75,21 @@
 - name: Configure debconf to interactively select the license
   command: echo "oracle-java17-installer shared/accepted-oracle-license-v1-3 select true" | debconf-set-selections
 
-- name: Install Oracle Java 17 JDK and JRE
-  apt:
-    name:
-      - oracle-java17-installer
-      - oracle-java17-set-default
-    state: present
-    install_recommends: yes
+# - name: Install Oracle Java 17 JDK and JRE
+#   apt:
+#     name:
+#       - oracle-java17-installer
+#       - oracle-java17-set-default
+#     state: present
+#     install_recommends: yes
+
+- name: Install Oracle Java 17 using expect
+  expect:
+    command: apt-get -y install oracle-java17-installer oracle-java17-set-default
+    responses:
+      - "Press <Enter> to continue:"
+      - "Yes\n"
+    echo: yes
 
 - import_tasks: postgresql.yml
 
