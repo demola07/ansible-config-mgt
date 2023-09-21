@@ -72,6 +72,11 @@
 #     state: present
 #     allow_unauthenticated: yes
 
+- name: Configure debconf to interactively select the license
+  debconf:
+    name: oracle-java17-installer/local
+    question: shared/accepted-oracle-license-v1-3
+    value: select true
 
 - name: Install Oracle Java 17 JDK and JRE
   apt:
