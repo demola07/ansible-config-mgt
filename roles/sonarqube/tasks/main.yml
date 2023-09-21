@@ -75,10 +75,8 @@
 - name: Configure debconf to interactively select the license
   command: echo "oracle-java17-installer shared/accepted-oracle-license-v1-3 select true" | debconf-set-selections
 
-- name: Accept Oracle license using expect
-  expect:
-    command: /bin/sh -c "echo oracle-java17-installer shared/accepted-oracle-license-v1-3 select true | /usr/bin/debconf-set-selections"
-    echo: no
+- name: Set debconf selections to accept the Oracle license
+  shell: echo oracle-java17-installer shared/accepted-oracle-license-v1-3 select true | debconf-set-selections
 
 - name: Install Oracle Java 17 JDK and JRE
   apt:
